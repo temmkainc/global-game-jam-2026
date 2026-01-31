@@ -276,11 +276,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4385682945636217873}
-  - component: {fileID: 824942625049918388}
   - component: {fileID: 4276073401579197428}
   - component: {fileID: -4272242714342325340}
   - component: {fileID: 2750261953900489783}
-  - component: {fileID: 3479676351036290391}
+  - component: {fileID: 8620719694094577605}
   m_Layer: 7
   m_Name: Prop_KidsCube_H
   m_TagString: Untagged
@@ -304,14 +303,6 @@ Transform:
   - {fileID: 5174333524392178063}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &824942625049918388
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4005604197429079723}
-  m_Mesh: {fileID: 9185970250102402885, guid: e740a0421269eb24f848e755db9e7b88, type: 3}
 --- !u!65 &4276073401579197428
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -331,7 +322,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.20933646, y: 0.20933646, z: 0.20933646}
+  m_Size: {x: 0.21, y: 0.21, z: 0.21}
   m_Center: {x: 0, y: 0.10466823, z: 0}
 --- !u!54 &-4272242714342325340
 Rigidbody:
@@ -374,7 +365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LetterCube
   _throwForce: 5
   <Letter>k__BackingField: 72
---- !u!114 &3479676351036290391
+--- !u!114 &8620719694094577605
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

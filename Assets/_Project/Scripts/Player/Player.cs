@@ -8,11 +8,22 @@ public class Player : MonoBehaviour
     public PlayerMask PlayerMask { get; private set; }
     [field: SerializeField] public Transform HoldPoint { get; private set; }
 
+    private FirstPersonMovement _firstPersonMovement;
+    private Jump _jump;
+
 
     private void Awake()
     {
         Sight = GetComponent<PlayerSight>();
         Interaction = GetComponent<PlayerInteraction>();
         PlayerMask = GetComponent<PlayerMask>();
+        _jump = GetComponent<Jump>();
+        _firstPersonMovement = GetComponent<FirstPersonMovement>();
+    }
+
+    public void SetInput(bool value)
+    {
+        _firstPersonMovement.enabled = value;
+        _jump.enabled = value;
     }
 }

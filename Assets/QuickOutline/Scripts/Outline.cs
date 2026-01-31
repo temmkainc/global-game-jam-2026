@@ -15,7 +15,7 @@ using UnityEngine;
 
 public class Outline : MonoBehaviour
 {
-    private static HashSet<Mesh> registeredMeshes = new HashSet<Mesh>();
+    private HashSet<Mesh> registeredMeshes = new HashSet<Mesh>();
 
     public enum Mode
     {
@@ -108,6 +108,7 @@ public class Outline : MonoBehaviour
 
         // Apply material properties immediately
         needsUpdate = true;
+        registeredMeshes.Clear();
     }
 
     void OnEnable()
