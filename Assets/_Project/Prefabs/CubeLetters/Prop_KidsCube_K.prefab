@@ -121,7 +121,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7129563702489640493}
@@ -243,6 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5ce3d6e12d6e034db42dd9acca2e063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LetterCube
+  _throwForce: 5
   <Letter>k__BackingField: 75
 --- !u!114 &1764460059791006058
 MonoBehaviour:

@@ -15,6 +15,8 @@ public class PlayerInput : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            if (!_gameStateManager.CanUseMask)
+                return;
             ToggleMask();
         }
     }

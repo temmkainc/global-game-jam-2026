@@ -10,6 +10,8 @@ public class PlayerMask : MonoBehaviour
     [SerializeField] private float _maxRechargeLevel = 100f;
     [SerializeField] private float _rechargeRate = 0.1f;
     [SerializeField] private float _dechargeRate = 0.5f;
+    [SerializeField] private float _disableThreshold = 0.1f;
+
     private float _currentRechargeLevel;
    
     private bool _isRechargable = false;
@@ -42,16 +44,36 @@ public class PlayerMask : MonoBehaviour
         if(!_isRechargable)
             return;
 
-        if (!_isPlayerInMask)
+        if (!_isPlayerInMask && _playerStateManager.CanRechargeMask)
         {
             _currentRechargeLevel += _rechargeRate * Time.fixedDeltaTime;
+            if (_currentRechargeLevel >= _disableThreshold && !_playerStateManager.CanUseMask)
+            {
+                _playerStateManager.SetCanUseMask(true);
+            }
         }
         else
         {
             _currentRechargeLevel -= _dechargeRate * Time.fixedDeltaTime;
+            if (_currentRechargeLevel <= _disableThreshold && _playerStateManager.CanUseMask)
+            {
+                _playerStateManager.SetState(PlayerState.NoMask);
+                _playerStateManager.SetCanUseMask(false);
+            }
         }
 
         _currentRechargeLevel = Mathf.Clamp(_currentRechargeLevel, 0f, _maxRechargeLevel);
         _playerVisuals.UpdateMaskRechargeBar(_currentRechargeLevel / _maxRechargeLevel);
     }
+
+    public void Recharge()
+    {
+        if (!_isRechargable)
+            return;
+
+        _currentRechargeLevel = _maxRechargeLevel;
+        _playerStateManager.SetCanRechargeMask(true);
+    }
+
+
 }
