@@ -78906,7 +78906,7 @@ Transform:
   m_GameObject: {fileID: 7544259679886142328}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.4, z: 0}
+  m_LocalPosition: {x: 0, y: 1.4, z: 0.013}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -79028,7 +79028,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2064819763700356863}
   - {fileID: 1435673649653583944}
   - {fileID: 1140687393684784923}
   - {fileID: 908826892108148726}
@@ -79044,12 +79043,12 @@ Transform:
   m_GameObject: {fileID: 7556399200575906448}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.378, z: 0}
+  m_LocalPosition: {x: -1.5, y: 1.778, z: -33.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1433432589}
-  m_Father: {fileID: 2055604874863584895}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2301228834663650177
 Transform:
@@ -79530,22 +79529,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &4584651973540172372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7556399200575906448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 780f90e951d635f439326ea715cd97e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultFOV: 60.000004
-  maxZoomFOV: 15
-  currentZoom: 0
-  sensitivity: 1
 --- !u!114 &4776900547044332937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80134,7 +80117,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 80
   m_CollisionDetection: 1
 --- !u!4 &7113873949694544425
@@ -80204,7 +80187,6 @@ GameObject:
   - component: {fileID: 5789638726823785012}
   - component: {fileID: 2991647727610920708}
   - component: {fileID: 7986896851796281203}
-  - component: {fileID: 4584651973540172372}
   - component: {fileID: 4776900547044332937}
   m_Layer: 3
   m_Name: First Person Camera
@@ -80357,8 +80339,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 2055604874863584895}
+  eyePoint: {fileID: 1435673649653583944}
   sensitivity: 2
   smoothing: 1.5
+  positionSmoothTime: 0.05
 --- !u!114 &8375319280895833321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80649,6 +80633,7 @@ SceneRoots:
   - {fileID: 445113694}
   - {fileID: 410087041}
   - {fileID: 832575519}
+  - {fileID: 2064819763700356863}
   - {fileID: 2055604874863584895}
   - {fileID: 1772553536}
   - {fileID: 772656363}
