@@ -78,6 +78,10 @@ public class PlayerInteraction : MonoBehaviour
             if (receiver.CanReceive(CurrentGrabbedObject) && CurrentGrabbedObject != null)
             {
                 receiver.Receive(CurrentGrabbedObject, _player);
+                if (CurrentGrabbedObject is MonoBehaviour mono)
+                {
+                    mono.gameObject.layer = LayerMask.NameToLayer("Interactable");
+                }
                 CurrentGrabbedObject = null;
                 return;
             } else if (CurrentGrabbedObject == null)
@@ -90,6 +94,10 @@ public class PlayerInteraction : MonoBehaviour
         if (CurrentGrabbedObject != null)
         {
             CurrentGrabbedObject.OnInteract(_player);
+            if(CurrentGrabbedObject is MonoBehaviour mono)
+            {
+                mono.gameObject.layer = LayerMask.NameToLayer("Interactable");
+            }
             CurrentGrabbedObject = null;
             return;
         }
@@ -101,6 +109,10 @@ public class PlayerInteraction : MonoBehaviour
             if (_currentLookTarget is IGrabbable grabbable)
             {
                 CurrentGrabbedObject = grabbable;
+                if (CurrentGrabbedObject is MonoBehaviour mono)
+                {
+                    mono.gameObject.layer = LayerMask.NameToLayer("Hold");
+                }
             }
         }
     }
