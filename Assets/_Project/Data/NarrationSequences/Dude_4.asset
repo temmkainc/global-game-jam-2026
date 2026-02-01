@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196a4378cb232fb4faf365d461c3fd41, type: 3}
+  m_Name: Dude_4
+  m_EditorClassIdentifier: Assembly-CSharp::NarrationSequence
+  VoiceOver: {fileID: 8300000, guid: 0932b5a5114fa0b438c38da23741b85b, type: 3}
+  Lines:
+  - Subtitle: You haven't learned the alphabet again, and you've even lost letters!
+    Duration: 1.95
+    DelayBefore: 0
+  - Subtitle: You'd forget your head if it wasn't attached to you.
+    Duration: 2.04
+    DelayBefore: 0.05

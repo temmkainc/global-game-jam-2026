@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196a4378cb232fb4faf365d461c3fd41, type: 3}
+  m_Name: CityDoorOpened
+  m_EditorClassIdentifier: Assembly-CSharp::NarrationSequence
+  VoiceOver: {fileID: 8300000, guid: 2109704f2119e6741a3cf1c537d6383e, type: 3}
+  Lines:
+  - Subtitle: Congrats grads!
+    Duration: 1.65
+    DelayBefore: 0.47
+  - Subtitle: I'm sorry I doubted you,
+    Duration: 1.23
+    DelayBefore: 0.22
+  - Subtitle: you 'unshaped' creatures sometimes are like us
+    Duration: 2.88
+    DelayBefore: 0.3
+  - Subtitle: '"clever"'
+    Duration: 0.6
+    DelayBefore: 0.15
+  - Subtitle: Anyways, uni is finished,
+    Duration: 1.8
+    DelayBefore: 0.5
+  - Subtitle: "welcome to your favourite workplace, who you were\u2026"
+    Duration: 2.45
+    DelayBefore: 0.05
+  - Subtitle: oh, journalist,
+    Duration: 1.05
+    DelayBefore: 0.35
+  - Subtitle: "so let\u2019s see how fast your fingers are."
+    Duration: 1.62
+    DelayBefore: 0

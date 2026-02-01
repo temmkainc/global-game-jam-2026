@@ -13,8 +13,7 @@ public class FirstPersonMovement : MonoBehaviour
 
     private Rigidbody _rigidbody;
     public List<System.Func<float>> speedOverrides = new List<System.Func<float>>();
-
-
+    public bool isLocked = false;
 
     void Awake()
     {
@@ -23,6 +22,12 @@ public class FirstPersonMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (isLocked)
+        {
+            _rigidbody.linearVelocity = new Vector3(0, _rigidbody.linearVelocity.y, 0);
+            _animator.SetFloat("Speed", 0f);
+            return;
+        }
         IsRunning = canRun && Input.GetKey(runningKey);
 
         float targetMovingSpeed = IsRunning ? runSpeed : speed;

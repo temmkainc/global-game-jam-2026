@@ -1,6 +1,8 @@
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
+using Zenject;
+using System;
 
 public class ObfuscatedText : MonoBehaviour, IObfuscatedText
 {
@@ -14,11 +16,14 @@ public class ObfuscatedText : MonoBehaviour, IObfuscatedText
     [SerializeField] private string _translation;
 
     [Header("Animation")]
+    [SerializeField] private float _fadeDelay = 0.2f;
     [SerializeField] private float _fadeDuration = 0.25f;
     [SerializeField] private Ease _fadeEase = Ease.OutQuad;
 
     private Tween _obfuscatedTween;
     private Tween _translationTween;
+
+    [Inject] PlayerStateManager _playerStateManager;
 
     private void Awake()
     {
@@ -26,6 +31,19 @@ public class ObfuscatedText : MonoBehaviour, IObfuscatedText
         _translationTMP.text = _translation;
         _obfuscatedLabelCanvasGroup.alpha = 1f;
         _translationLabelCanvasGroup.alpha = 0f;
+        _playerStateManager.StateChanged += On_PlayerStateChanged;
+    }
+
+    private void On_PlayerStateChanged(PlayerState state)
+    {
+        if(state == PlayerState.InMask)
+        {
+            OnSightEnter();
+        }
+        else
+        {
+            OnSightExit();
+        }
     }
 
     public void OnSightEnter()
@@ -36,10 +54,12 @@ public class ObfuscatedText : MonoBehaviour, IObfuscatedText
 
         _obfuscatedTween = _obfuscatedLabelCanvasGroup
             .DOFade(0f, _fadeDuration)
+            .SetDelay(_fadeDelay)
             .SetEase(_fadeEase);
 
         _translationTween = _translationLabelCanvasGroup
             .DOFade(1f, _fadeDuration)
+            .SetDelay(_fadeDelay)
             .SetEase(_fadeEase);
     }
 
@@ -49,10 +69,12 @@ public class ObfuscatedText : MonoBehaviour, IObfuscatedText
 
         _obfuscatedTween = _obfuscatedLabelCanvasGroup
             .DOFade(1f, _fadeDuration)
+            .SetDelay(_fadeDelay)
             .SetEase(_fadeEase);
 
         _translationTween = _translationLabelCanvasGroup
             .DOFade(0f, _fadeDuration)
+            .SetDelay(_fadeDelay)
             .SetEase(_fadeEase);
     }
 

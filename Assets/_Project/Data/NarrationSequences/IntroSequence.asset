@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196a4378cb232fb4faf365d461c3fd41, type: 3}
+  m_Name: IntroSequence
+  m_EditorClassIdentifier: Assembly-CSharp::NarrationSequence
+  VoiceOver: {fileID: 8300000, guid: a83639dc0f427f34fb219bd29a6016fc, type: 3}
+  Lines:
+  - Subtitle: Hey! I see you are doing great:)
+    Duration: 3.95
+    DelayBefore: 1
+  - Subtitle: "I hope you understand me well, because this language is\u2026 weird."
+    Duration: 3
+    DelayBefore: 0.4
+  - Subtitle: English or how it is called, never mind.
+    Duration: 1.5
+    DelayBefore: 0.5
+  - Subtitle: Anyways, you have to help us.
+    Duration: 1.5
+    DelayBefore: 0
+  - Subtitle: "Just sit here and wait for a day or two while we try to\u2026 fix
+      you."
+    Duration: 2.5
+    DelayBefore: 0
+  - Subtitle: We have built you a home, everything you need!
+    Duration: 2
+    DelayBefore: 0.3
+  - Subtitle: Here is also your new friend Blump, say Hi to him
+    Duration: 2
+    DelayBefore: 0.5
+  - Subtitle: Just wait a bit, so we can help you to become a better version of yourself...
+    Duration: 3
+    DelayBefore: 0.2
+  - Subtitle: CUBE
+    Duration: 1
+    DelayBefore: 0
+  - Subtitle: Ok, bye!
+    Duration: 1
+    DelayBefore: 0
