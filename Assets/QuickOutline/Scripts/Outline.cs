@@ -16,7 +16,8 @@ using UnityEngine;
 public class Outline : MonoBehaviour
 {
     private HashSet<Mesh> registeredMeshes = new HashSet<Mesh>();
-
+    [SerializeField]
+    private Renderer[] renderers;
     public enum Mode
     {
         OutlineAll,
@@ -84,7 +85,6 @@ public class Outline : MonoBehaviour
     [SerializeField, HideInInspector]
     private List<ListVector3> bakeValues = new List<ListVector3>();
 
-    private Renderer[] renderers;
     private Material outlineMaskMaterial;
     private Material outlineFillMaterial;
 
@@ -93,8 +93,6 @@ public class Outline : MonoBehaviour
     void Awake()
     {
 
-        // Cache renderers
-        renderers = GetComponentsInChildren<Renderer>();
 
         // Instantiate outline materials
         outlineMaskMaterial = Instantiate(Resources.Load<Material>(@"Materials/OutlineMask"));

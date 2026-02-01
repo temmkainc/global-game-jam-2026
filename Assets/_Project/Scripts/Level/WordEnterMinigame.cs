@@ -18,7 +18,7 @@ public class TypingMinigame : MonoBehaviour, ICompletable
     [Header("Settings")]
     [SerializeField] private float timeLimit = 10f;
     [SerializeField] private string[] wordPool;
-    [SerializeField] private int wordsPerSession = 5;
+    [SerializeField] private int wordsPerSession = 10;
     [SerializeField] private int streakToWin = 3;
 
     [Inject] private Player player;
@@ -58,13 +58,12 @@ public class TypingMinigame : MonoBehaviour, ICompletable
 
         if (!isActive) return;
 
-        // Timer update
         timeLeft -= Time.deltaTime;
         timerBar.fillAmount = Mathf.Clamp01(timeLeft / timeLimit);
 
         if (timeLeft <= 0f)
         {
-            correctInRow = 0;
+            CheckWord();
             wordsTyped++;
             if (wordsTyped >= wordsPerSession)
             {
@@ -74,26 +73,31 @@ public class TypingMinigame : MonoBehaviour, ICompletable
             NextWord();
         }
 
-        // Handle typing
+        int spaceLeft = MAX_INPUT_LENGTH - playerInput.Length;
+
         foreach (char c in Input.inputString.ToUpper())
         {
-            if (c == '\b') // Backspace
+            if (c == '\b')
             {
                 if (playerInput.Length > 0)
-                    playerInput = playerInput.Substring(0, playerInput.Length - 1);
+                    playerInput = playerInput[..^1];
             }
-            else if (c == '\n' || c == '\r') // Enter
+            else if (c == '\n' || c == '\r')
             {
                 CheckWord();
+                break;
             }
-            else
+            else if (c == ' ') 
             {
-                if (playerInput.Length < MAX_INPUT_LENGTH)
-                {
-                    playerInput += c;
-                }
+                continue;
+            }
+            else if (spaceLeft > 0)
+            {
+                playerInput += c;
+                spaceLeft--;
             }
         }
+
 
         inputDisplay.text = playerInput;
     }
@@ -133,6 +137,7 @@ public class TypingMinigame : MonoBehaviour, ICompletable
 
     private void StartRealGame()
     {
+        startPrompt.gameObject.SetActive(false);
         hasStarted = true;
         hasWon = false;
         wordsTyped = 0;
@@ -159,7 +164,9 @@ public class TypingMinigame : MonoBehaviour, ICompletable
     private void EndSession()
     {
         isActive = false;
-        wordDisplay.text = "SESSION OVER";
+        wordDisplay.text = "";
+        startPrompt.gameObject.SetActive(true);
+        startPrompt.text = "SESSION OVER";
         inputDisplay.text = "";
         streakDisplay.text = $"0/{streakToWin}";
         Invoke(nameof(ShowStartScreen), 2f);
@@ -216,7 +223,9 @@ public class TypingMinigame : MonoBehaviour, ICompletable
     {
         isActive = false;
         hasWon = true;
-        wordDisplay.text = "YOU WON! \n [SPACE] to restart";
+        startPrompt.gameObject.SetActive(true);
+        startPrompt.text = "YOU WON! \n [SPACE] to restart";
+        wordDisplay.text = " ";
         streakDisplay.text = $"{streakToWin}/{streakToWin}";
         Completed?.Invoke();
     }
